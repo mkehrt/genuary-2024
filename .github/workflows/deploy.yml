@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+  # Run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE, so the job can access it
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: make
+
+      - name: Set up SSH keys 
+        env: 
+          KNOWN_HOST: ${{ secrets.NFS_HOST_KEY_RSA }}
+          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
+          SSH_KEY: ${{ secrets.NFS_SSH_KEY_RSA }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-agent -a "$SSH_AUTH_SOCK"
+          ssh-add -vvv - <<< "$SSH_KEY"
+          echo "$KNOWN_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy
+        env: 
+          SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
+        run: rsync -rv --delete out/ mkehrt_nativespeakers@ssh.nyc1.nearlyfreespeech.net:/home/public
+

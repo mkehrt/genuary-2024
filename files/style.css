@@ -1,0 +1,34 @@
+:root {
+    --lighttext: #666666;
+}
+
+body {
+    background-color: #eeeeee;
+    font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+  }
+
+#main-text {
+    font-size: 4vw;
+    color: #333333;
+    width: 66vw;
+    padding-top:8vw;
+    margin: auto;
+    text-align: center;
+}
+
+#example-text {
+    font-size: 3vw;
+    color: var(--lighttext);
+    width: 66vw;
+    padding-top: 6vw;
+    margin: auto;
+    text-align: center;
+}
+
+#example {
+    color: #800080
+}
+
+#example-and {
+    color: var(--lighttext)
+}
