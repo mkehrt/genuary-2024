@@ -35,5 +35,5 @@ jobs:
       - name: Deploy
         env: 
           SSH_AUTH_SOCK: "/tmp/ssh_agent.sock"
-        run: rsync -rv --delete out/ mkehrt_roseandsigil@ssh.nyc1.nearlyfreespeech.net:/home/public/genruary-2024
+        run: rsync -rv --delete out/ mkehrt_roseandsigil@ssh.nyc1.nearlyfreespeech.net:/home/public/genuary-2024
 
