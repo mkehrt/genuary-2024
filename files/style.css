@@ -28,7 +28,8 @@ body {
 .day-canvas {
     width: 10vw;
     height: 10vw;
+    display: : block;
     padding-top: 2vw;
-    padding-left: auto;
-    padding-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
