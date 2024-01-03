@@ -24,3 +24,9 @@ body {
     margin: auto;
     text-align: center;
 }
+
+.day-canvas {
+    width: 66vw;
+    padding-top: 2vw;
+    margin: auto;
+}
