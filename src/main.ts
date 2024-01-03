@@ -1,34 +1,16 @@
-import { examples } from "./examples.js"
+import { run_day_1 } from "./day_1.js"
 
 export function main() {
-    let example_div = document.getElementById("example")
-    if (example_div != null) {
-        let example = select_example()
-        let example_html = convert_example_to_html(example)
-        example_div.innerHTML = example_html
-    }
+    let day_1_context = get_context_by_id("day-1");
+    run_day_1(day_1_context);
 }
 
-function convert_example_to_html(example: (string | [string, string])): string {
-    if (typeof example == "string") {
-        return example
-    } else {
-        let first = example[0]
-        let second = example[1]
-        let html = first + "<span id=\"example-and\"> and </span>" + second
-        return html
-    }
-}
-
-function random_int(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function select_example(): (string | [string, string]) {
-    let  length = examples.length
-    let index = random_int(length)
-    let example: string | [string, string] = examples[index]
-    return example
+function get_context_by_id(id: string): CanvasRenderingContext2D {
+    let element = document.getElementById(id);
+    let canvas = element as HTMLCanvasElement;
+    let context = canvas.getContext("2d");
+   
+    return context
 }
 
 document.addEventListener('DOMContentLoaded', main)

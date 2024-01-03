@@ -7,28 +7,20 @@ body {
     font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
   }
 
-#main-text {
+.title {
     font-size: 4vw;
     color: #333333;
     width: 66vw;
-    padding-top:8vw;
+    padding-top:4vw;
     margin: auto;
     text-align: center;
 }
 
-#example-text {
-    font-size: 3vw;
+.day-label {
+    font-size: 2vw;
     color: var(--lighttext);
     width: 66vw;
-    padding-top: 6vw;
+    padding-top: 2vw;
     margin: auto;
     text-align: center;
-}
-
-#example {
-    color: #800080
-}
-
-#example-and {
-    color: var(--lighttext)
 }
