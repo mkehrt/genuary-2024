@@ -27,6 +27,7 @@ body {
 
 .day-canvas {
     width: 66vw;
+    height: 66vw;
     padding-top: 2vw;
     margin: auto;
 }
